@@ -9,6 +9,8 @@ import cv2
 ap = argparse.ArgumentParser()
 ap.add_argument("-i", "--image", required=True,
 	help="path to input image")
+ap.add_argument("-o", "--output", required=True,
+	help="path to output image")
 args = vars(ap.parse_args())
 
 # load the image from disk via "cv2.imread" and then grab the spatial
@@ -28,4 +30,4 @@ cv2.waitKey(0)
 
 # save the image back to disk (OpenCV handles converting image
 # filetypes automatically)
-cv2.imwrite("newimage.jpg", image)
+cv2.imwrite(args["output"], image)
